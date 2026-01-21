@@ -4,3 +4,8 @@ body {
   background-color: #f4f4f4;
   text-align: center;
 }
+
+.outOfStock {
+  opacity: 0.5;
+  border: 2px solid red;
+}
