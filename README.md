@@ -1,120 +1,202 @@
-# Lab: Product Dashboard Manager
+# Product Dashboard
 
-## Introduction
+A dynamic, responsive product dashboard built with React, Vite, Material UI, and CSS Modules. Features product filtering, conditional rendering, and comprehensive test coverage.
 
-Your company is developing an **e-commerce platform**, and you have been assigned to create a **Product Dashboard**. This dashboard will dynamically display a list of products, allow users to filter products by availability, and apply **conditional rendering** to display different UI states.
+## 🚀 Project Overview
 
-Your goal is to structure the React components, apply styles using **CSS Modules and Material UI**, and ensure that the dashboard passes all pre-written automated tests using **Jest and React Testing Library**.
+This project demonstrates key React concepts including:
+- Dynamic rendering with iteration and mapping
+- Conditional rendering for different UI states
+- Component composition and props
+- CSS Modules for scoped styling
+- Material UI integration
+- Comprehensive testing with Jest and React Testing Library
 
----
+## 📋 Features
 
-## **Challenge**
-1. Update Existing Element of the title
-2. Create New Elements for each product
+- **Dynamic Product Display**: Products are rendered dynamically from a data array
+- **Filtering**: Toggle between all products and in-stock products only
+- **Conditional Rendering**: Different styles for out-of-stock items
+- **Responsive Design**: Mobile-friendly layout with Material UI Grid
+- **Empty State Handling**: Displays appropriate message when no products are available
+- **Professional Styling**: Custom CSS Modules combined with Material UI theming
 
-## **Bonus Challenge**
-3. Delete Element
+## 🛠️ Technologies Used
 
----
+- **React 18**: UI library
+- **Vite**: Build tool and dev server
+- **Material UI**: Component library for professional UI elements
+- **CSS Modules**: Scoped styling to avoid conflicts
+- **Jest**: Testing framework
+- **React Testing Library**: Testing utilities for React components
 
-## **Instructions**
+## 📦 Installation
 
-### **1️⃣ Fork and Clone the Repository**  
-1. Go to the provided **GitHub repository link**.
-2. **Fork** the repository to your GitHub account.
-3. **Clone** the forked repository to your local machine:
-   ```sh
-   git clone <your-forked-repository-url>
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+
+### Setup Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repository-url>
    cd product-dashboard
    ```
-4. Open the project in **VSCode**.
-5. Run the following command to install all necessary dependencies:
-   ```sh
+
+2. **Install dependencies**
+   ```bash
    npm install
    ```
 
-### **2️⃣ Update Existing Element**
-- Modify the existing **header** element to display the **Product Dashboard title**.
-- Select the **DOM element** with the ID of `header`.
-- Store it in a variable called `dashboardTitle`.
-- Change the **textContent** of `dashboardTitle` to **"Product Dashboard"**.
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-### **3️⃣ Create New Elements for Each Product**
-- Loop through every product in the dataset.
-- Each product is stored in an **array**.
-- Inside the loop, create and configure the following **new elements**:
-  - **`div` element (`productContainer`)** to hold product details.
-  - **`h3` element (`productTitle`)** to display the product name.
-  - **`p` element (`productPrice`)** to show the product's price.
-  - **`p` element (`productAvailability`)** to indicate if the product is **in stock or out of stock**.
-  - **`img` element (`productImage`)** to display the product image.
+4. **Open your browser**
+   - Navigate to `http://localhost:3000`
+   - The dashboard should be running!
 
-### **4️⃣ Append Elements to the DOM**
-- Select the element with the ID `product-list` and store it in a variable called `productList`.
-- Append `productTitle`, `productPrice`, `productAvailability`, and `productImage` to `productContainer`.
-- Append `productContainer` to `productList`.
+## 🧪 Running Tests
 
-### **5️⃣ Implement Conditional Rendering**
-- Products that are **out of stock** should be **styled differently**.
-- Use **CSS Modules** to apply a different background color to out-of-stock items.
+This project includes comprehensive automated tests to validate functionality.
+
+### Run all tests
+```bash
+npm test
+```
+
+### Run tests in watch mode
+```bash
+npm test:watch
+```
+
+### Test Coverage
+
+The test suite covers:
+- ✅ Product card rendering
+- ✅ Conditional rendering for in-stock/out-of-stock states
+- ✅ Product list iteration
+- ✅ Empty state handling
+- ✅ Filter functionality
+- ✅ Component styling
+
+## 📁 Project Structure
+
+```
+product-dashboard/
+├── public/
+│   └── index.html              # HTML template
+├── src/
+│   ├── components/
+│   │   ├── ProductCard.jsx     # Individual product card component
+│   │   ├── ProductList.jsx     # List container component
+│   │   └── __tests__/
+│   │       ├── ProductCard.test.jsx
+│   │       └── ProductList.test.jsx
+│   ├── styles/
+│   │   └── ProductCard.module.css  # CSS Module for product cards
+│   ├── __tests__/
+│   │   └── App.test.jsx        # App component tests
+│   ├── App.js                  # Main app component
+│   └── index.js                # Application entry point
+├── babel.config.js             # Babel configuration
+├── jest.config.js              # Jest configuration
+├── jest.setup.js               # Jest setup file
+├── vite.config.js              # Vite configuration
+├── package.json
+└── README.md
+```
+
+## 🎨 Key Components
+
+### App Component
+- Main application component
+- Manages product data and filtering state
+- Renders ProductList with filtered products
+
+### ProductList Component
+- Receives array of products as props
+- Iterates over products using `.map()`
+- Handles empty state with conditional rendering
+- Uses React fragments to avoid unnecessary DOM nodes
+
+### ProductCard Component
+- Displays individual product information
+- Conditional styling based on stock availability
+- Uses CSS Modules for scoped styles
+- Material UI components for professional appearance
+
+## 🎯 Learning Objectives Achieved
+
+### ✅ Rendering Conventions
+- **Iteration**: Using `.map()` to render lists of components
+- **Conditional Rendering**: Displaying different UI based on state
+- **Fragments**: Using `<>` and `</>` to group elements without extra nodes
+
+### ✅ Styling
+- **CSS Modules**: Scoped styling with `.module.css` files
+- **Material UI**: Professional components and theming
+- **Responsive Design**: Grid layout that adapts to screen size
+
+### ✅ Testing
+- **Component Testing**: Individual component test suites
+- **Integration Testing**: Testing component interactions
+- **Edge Cases**: Empty lists, null/undefined props
+
+## 🔧 Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm test` - Run tests once
+- `npm test:watch` - Run tests in watch mode
+
+## 🐛 Troubleshooting
+
+### Tests failing?
+1. Ensure all dependencies are installed: `npm install`
+2. Check that component files match expected structure
+3. Review test output for specific error messages
+4. Verify CSS Module class names are being applied
+
+### Development server not starting?
+1. Check that port 3000 is available
+2. Clear npm cache: `npm cache clean --force`
+3. Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
+
+## 📝 Code Quality
+
+The codebase includes:
+- Comprehensive JSDoc comments
+- Descriptive variable and function names
+- Proper component structure and organization
+- Accessibility considerations
+- Responsive design principles
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -m 'Add feature'`
+4. Push to branch: `git push origin feature-name`
+5. Submit a pull request
+
+## 📄 License
+
+This project is part of an educational lab assignment.
+
+## 🙏 Acknowledgments
+
+- React Documentation
+- Material UI Documentation
+- CSS Modules Documentation
+- Jest and React Testing Library Documentation
 
 ---
 
-## **Bonus Challenge: Delete Element**
-- Implement a feature that allows users to **remove a product** from the dashboard.
-- Add a **"Remove" button** next to each product.
-- When clicked, the button should **delete the product element** from the page.
-
----
-
-## **BONUS: Remove Elements from the DOM**
-
-We know how to add elements and change their attributes. What if we want to
-remove an element from a page?
-
-### `removeChild()`
-
-We use `removeChild()`, as you might guess, to remove a particular child of an
-element:
-
-```js
-someElement.removeChild(someChildElement);
-```
-
-Let's take a look at a more complex example:
-
-```js
-const productList = document.getElementById("product-list");
-const firstProduct = productList.querySelector("div:first-child");
-productList.removeChild(firstProduct);
-```
-
-Here you can see the power of `querySelector()`: we can use it to find the
-first product in the list. We then pass that element as the argument to our
-`removeChild` method, which removes it from the dashboard.
-
-What if we want to remove the entire product list?
-
-### `element.remove()`
-
-We can just call `remove()` on the element itself:
-
-```js
-productList.remove();
-```
-
-And it's gone!
-
----
-
-## **Resources**
-
-- [React Documentation](https://react.dev)
-- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
-- [Material UI Documentation](https://mui.com)
-- [Jest Testing Framework](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com)
-- [document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-- [append()](https://developer.mozilla.org/en-US/docs/Web/API/Element/append)
-- [removeChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
-- [element.remove()](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove)
+**Built with ❤️ for learning React fundamentals**

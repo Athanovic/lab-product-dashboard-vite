@@ -1,27 +1,80 @@
-import { Card, CardContent, Typography, Button } from "@mui/material";
+import React from 'react';
+import { Card, CardContent, Typography, Chip, Box } from '@mui/material';
+import styles from '../styles/ProductCard.module.css';
 
-const ProductCard = ({ product, onRemove }) => {
+/**
+ * ProductCard Component
+ * Displays individual product information
+ * Applies conditional styling for out-of-stock products
+ */
+function ProductCard({ product }) {
+  const { name, price, inStock } = product;
+
   return (
-    <Card data-testid="product-card">
-      <CardContent>
-        {/* 🔑 THIS div must be the CLOSEST div */}
-        <div className={product.inStock ? "" : "outOfStockClass"}>
-          <Typography variant="h6">
-            {product.name}
+    <Card 
+      className={inStock ? styles.card : styles.cardOutOfStock}
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          transform: inStock ? 'translateY(-4px)' : 'none',
+          boxShadow: inStock ? 6 : 1,
+        },
+      }}
+    >
+      <CardContent sx={{ flexGrow: 1, p: 3 }}>
+        <Box sx={{ mb: 2 }}>
+          <Typography 
+            variant="h6" 
+            component="h2"
+            className={styles.productName}
+            sx={{ 
+              mb: 1,
+              fontWeight: 600,
+              color: inStock ? 'text.primary' : 'text.disabled'
+            }}
+          >
+            {name}
           </Typography>
-        </div>
+        </Box>
 
-        <Typography>Price: ${product.price}</Typography>
-        <Typography>
-          Status: {product.inStock ? "In Stock" : "Out of Stock"}
-        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <Typography 
+            variant="h5" 
+            className={styles.price}
+            sx={{ 
+              fontWeight: 700,
+              color: inStock ? 'primary.main' : 'text.disabled'
+            }}
+          >
+            ${price.toFixed(2)}
+          </Typography>
+        </Box>
 
-        <Button onClick={() => onRemove(product.id)}>
-          Remove
-        </Button>
+        <Box>
+          {inStock ? (
+            <Chip 
+              label="In Stock" 
+              color="success" 
+              size="small"
+              className={styles.statusChip}
+              sx={{ fontWeight: 500 }}
+            />
+          ) : (
+            <Chip 
+              label="Out of Stock" 
+              color="error" 
+              size="small"
+              className={styles.statusChipOutOfStock}
+              sx={{ fontWeight: 500 }}
+            />
+          )}
+        </Box>
       </CardContent>
     </Card>
   );
-};
+}
 
 export default ProductCard;
